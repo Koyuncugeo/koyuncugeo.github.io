@@ -1,43 +1,27 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
-    <title>PDF Listesi - Şifreli Erişim</title>
+    <title>PDF Dosyaları Listesi</title>
+    <script>
+        // Sayfa yüklenirken çalışan şifre kontrolü
+        window.onload = function() {
+            const password = prompt("PDF Dosyalarına Erişim\nLütfen şifreyi giriniz:");
+            if (password !== "sifre123") {  // Buraya kendi şifreni yaz
+                alert("Şifre yanlış! Erişim engellendi.");
+                window.location.href = "index.html";  // Ana sayfaya yönlendir
+            }
+            // Şifre doğruysa sayfa açılır
+        };
+    </script>
 </head>
 <body>
-    <h1>PDF Dosyalarına Erişim</h1>
-    
-    <div id="login">
-        <p>Lütfen şifreyi giriniz:</p>
-        <input type="password" id="passwordInput" />
-        <button onclick="checkPassword()">Giriş</button>
-        <p id="errorMsg" style="color:red;"></p>
-    </div>
-
-    <div id="pdfList" style="display:none;">
-        <ul>
-            <li><a href="GaziantepKent.pdf" target="_blank">Gaziantep Kentleşme PDF</a></li>
-            <li><a href="DigerDokuman.pdf" target="_blank">Diğer Doküman PDF</a></li>
-            <!-- Buraya istediğin kadar pdf ekleyebilirsin -->
-        </ul>
-    </div>
-
-    <script>
-        function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
-            const errorMsg = document.getElementById('errorMsg');
-            const pdfList = document.getElementById('pdfList');
-            const loginDiv = document.getElementById('login');
-
-            // Burada şifreyi belirliyorsun, örnek: "1234"
-            if (password === '1234') {
-                errorMsg.textContent = '';
-                loginDiv.style.display = 'none';
-                pdfList.style.display = 'block';
-            } else {
-                errorMsg.textContent = 'Hatalı şifre, lütfen tekrar deneyin.';
-            }
-        }
-    </script>
+    <h1>PDF Dosyaları Listesi</h1>
+    <ul>
+        <li><a href="GaziantepKent.pdf" target="_blank">Gaziantep Kentleşme ve Nüfus Dağılışı</a></li>
+        <li><a href="DigerDosya.pdf" target="_blank">Diğer PDF Dosyası</a></li>
+        <!-- Buraya başka PDF linkleri ekleyebilirsin -->
+    </ul>
 </body>
 </html>
+
